@@ -216,7 +216,7 @@ public class MainActivity extends AppCompatActivity
                                                 //while(true) {
                                                 //Adicionando o IP configurável aqui
 
-                                                Socket s = new Socket(IP, 9003);
+                                                Socket s = new Socket(IP, 9002);
 
                                                 OutputStream out = s.getOutputStream();
 
