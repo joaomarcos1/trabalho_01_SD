@@ -50,14 +50,13 @@ public class CriarThread {
                 valor = Double.parseDouble(entrada.nextLine());
                 System.out.println(celular + ": "+ valor);
                 
-                
-                grafico.addValor(valor, tempo, celular);
-                grafico.exibeGrafico();
-                tempo += 3;
-                
                 soma += valor;
                 media = soma / indice;
                 indice ++;
+                
+                grafico.addValor(valor, tempo, celular, media);
+                grafico.exibeGrafico();
+                tempo += 3;
 
                 aparelho.setText("Monitorado: " + cliente.getInetAddress().getHostAddress() + " - Média: " + media);
 

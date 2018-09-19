@@ -1,12 +1,8 @@
 package servidor_workloadgenerator;
 
-import java.io.*;
-import java.net.*;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Date;
-import java.util.Scanner;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
@@ -21,7 +17,6 @@ public class Servidor_WorkLoadGenerator extends JFrame{
                    aparelho2 = new JLabel("Aparelho 02"), 
                    aparelho3 = new JLabel("Aparelho 03");
     private final JButton monitorar = new JButton("Iniciar Monitoramento");
-    private GeradorGrafico grafico = new GeradorGrafico();
     private Thread thread1, thread2, thread3;
     
     public Servidor_WorkLoadGenerator(){
@@ -65,6 +60,7 @@ public class Servidor_WorkLoadGenerator extends JFrame{
         painel.setBackground(Color.white);
         
         add(painel);
+        setTitle("Servidor de Monitoramento");
         setVisible(true);
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
