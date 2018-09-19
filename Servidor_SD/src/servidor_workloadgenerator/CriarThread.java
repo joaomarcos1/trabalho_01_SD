@@ -5,6 +5,8 @@
  */
 package servidor_workloadgenerator;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -28,8 +30,6 @@ public class CriarThread {
     
     private int    tempo, indice;
     private double media, valor, soma;
-    
-    
     
     public void run(String celular, JLabel aparelho, int porta){
         try {
@@ -59,6 +59,29 @@ public class CriarThread {
                 tempo += 3;
 
                 aparelho.setText("Monitorado: " + cliente.getInetAddress().getHostAddress() + " - Média: " + media);
+                
+                String arquivo = String.valueOf(valor);
+                
+                if(celular == "Celular 01"){
+                    BufferedWriter out = new BufferedWriter(new FileWriter("C:\\Celular 01.doc", true));
+                    out.write(String.format(arquivo));
+                    out.newLine();
+                    out.close();
+                }
+                
+                if(celular == "Celular 02"){
+                    BufferedWriter out = new BufferedWriter(new FileWriter("C:\\Celular 02.doc", true));
+                    out.write(String.format(arquivo));
+                    out.newLine();
+                    out.close();
+                }
+                
+                if(celular == "Celular 03"){
+                    BufferedWriter out = new BufferedWriter(new FileWriter("C:\\Celular 03.doc", true));
+                    out.write(String.format(arquivo));
+                    out.newLine();
+                    out.close();
+                }
 
                 saida.flush();
                 saida.writeObject(new Date());
